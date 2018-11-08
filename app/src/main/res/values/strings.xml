@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Scholiki</string>
+    <string name="edt_hint_email">Email</string>
+    <string name="edt_hint_password">Password</string>
+    <string name="btn_label_login">Login</string>
 </resources>
