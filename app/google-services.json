@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "805506302646",
+    "firebase_url": "https://scholiki-test-bdd17.firebaseio.com",
+    "project_id": "scholiki-test-bdd17",
+    "storage_bucket": "scholiki-test-bdd17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805506302646:android:b324f1adf9c4bda1",
+        "android_client_info": {
+          "package_name": "com.azio.scholiki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805506302646-jvs3tmflam197oga7ht9qa4lelsuqp4e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.azio.scholiki",
+            "certificate_hash": "8f1ef463cde7767619be11c80d8ef14f2e047535"
+          }
+        },
+        {
+          "client_id": "805506302646-5tjvmbnurv9p90ouanbhg08re2vcab4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxFzw3wOA1hvQDL98a76R1IhF9YWe2DRE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805506302646-5tjvmbnurv9p90ouanbhg08re2vcab4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

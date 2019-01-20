@@ -4,7 +4,7 @@
     <string name="edt_hint_password">Password</string>
     <string name="btn_label_login">Login</string>
 
-    <string name="error_msg_emptyEmail"> Please enter your email</string>
-    <string name="error_msg_invalidEmail"> Please enter a valid email address</string>
+    <string name="error_msg_emptyEmail">Please enter your email</string>
+    <string name="error_msg_invalidEmail">Please enter a valid email address</string>
     <string name="error_msg_emptyPassword">Please enter a password</string>
 </resources>

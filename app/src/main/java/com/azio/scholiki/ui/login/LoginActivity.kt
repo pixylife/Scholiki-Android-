@@ -18,6 +18,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
+
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
 
@@ -68,8 +70,8 @@ class LoginActivity : AppCompatActivity() {
         return "Something went wrong...!"
     }
 
-    private fun showErrorMessage(messsage : String){
-        Toast.makeText(this,messsage,Toast.LENGTH_LONG).show()
+    private fun showErrorMessage(message : String){
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
     }
 
 
