@@ -1,5 +1,6 @@
 package com.azio.scholiki.ui.login
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -7,17 +8,39 @@ import android.util.Log
 import android.util.Patterns.EMAIL_ADDRESS
 import android.widget.Toast
 import com.azio.scholiki.R
+import com.azio.scholiki.dagger.AppComponent
+import com.azio.scholiki.ui.BaseActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity<LoginPresenter,LoginView>() {
+
+
+    override fun initDependencies(appComponent: AppComponent) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getContext(): Context {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showError(error: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
 
 
         // Initialize Firebase Auth
