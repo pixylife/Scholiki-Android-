@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity
 /**
  * Activity all Activity classes of rosso must extend. It provides required methods and presenter
  * instantiation and calls.
- * @param P the type of the presenter the Activity is based on
  */
 abstract class BaseActivity<TPresenter : BasePresenter<TView>, TView : BaseView> : AppCompatActivity(), BaseView {
 

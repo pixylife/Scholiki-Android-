@@ -20,10 +20,6 @@ class LoginActivity : BaseActivity<LoginPresenter,LoginView>() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getContext(): Context {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     override fun showError(error: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
