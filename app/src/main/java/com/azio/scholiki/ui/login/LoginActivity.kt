@@ -1,24 +1,21 @@
 package com.azio.scholiki.ui.login
 
-import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns.EMAIL_ADDRESS
 import android.widget.Toast
 import com.azio.scholiki.R
-import com.azio.scholiki.dagger.AppComponent
 import com.azio.scholiki.ui.BaseActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
-class LoginActivity : BaseActivity<LoginPresenter,LoginView>() {
+class LoginActivity : BaseActivity<LoginContract.Presenter>(),LoginContract.View {
 
+    override val presenter: LoginContract.Presenter by inject { parametersOf(this) }
 
-    override fun initDependencies(appComponent: AppComponent) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     override fun showError(error: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
