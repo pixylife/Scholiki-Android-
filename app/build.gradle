@@ -47,14 +47,10 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$androidSupVer"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
+    //Lottie dependencies
+    implementation 'com.airbnb.android:lottie:2.7.0'
 
-
-    //Rx dependencies
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
-
-
-
+    //koin dependencies
     implementation 'org.koin:koin-android:1.0.2'
 
     testImplementation 'junit:junit:4.12'
