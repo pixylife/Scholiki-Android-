@@ -8,45 +8,26 @@ import android.widget.Toast
 import com.azio.scholiki.R
 import com.azio.scholiki.ui.BaseActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
 class LoginActivity : BaseActivity<LoginContract.Presenter>(),LoginContract.View {
 
-    override val presenter: LoginContract.Presenter by inject { parametersOf(this) }
-
-
-    override fun showError(error: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun showLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun hideLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-
-        // Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance()
 
         btnLogin.setOnClickListener {
             val email = edtEmail.text.toString()
             val password = edtPassword.text.toString()
 
             if (isValidate(email, password)) {
-                signInWithEmailAndPassword(email,password)
+                presenter.login(email,password)
             } else {
-                showErrorMessage(getMessage(email, password))
+                showError(getMessage(email, password))
             }
         }
 
@@ -86,25 +67,28 @@ class LoginActivity : BaseActivity<LoginContract.Presenter>(),LoginContract.View
         return "Something went wrong...!"
     }
 
-    private fun showErrorMessage(message : String){
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+
+
+    override fun openHomePage(user: FirebaseUser) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override val presenter: LoginContract.Presenter by inject { parametersOf(this) }
+
+
+    override fun showError(error: String) {
+        Toast.makeText(this,error,Toast.LENGTH_LONG).show()
+    }
+
+    override fun showLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 
-    private fun signInWithEmailAndPassword(email : String ,password: String){
-        auth.signInWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    val user = auth.currentUser
-                    Log.e("login","Success")
-                } else {
-                    // If sign in fails, display a message to the user.
-                    showErrorMessage("Authentication Failed.")
-                }
-
-            }
-    }
 
 
 }
