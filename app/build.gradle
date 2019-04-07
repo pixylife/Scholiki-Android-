@@ -48,11 +48,8 @@ dependencies {
     implementation "com.android.support:cardview-v7:$androidSupVer"
     implementation "com.android.support:design:$androidSupVer"
 
-
-
     //Toasty dependencies
     implementation 'com.github.GrenderG:Toasty:1.4.1'
-
 
     //Lottie dependencies
     implementation 'com.airbnb.android:lottie:2.7.0'
