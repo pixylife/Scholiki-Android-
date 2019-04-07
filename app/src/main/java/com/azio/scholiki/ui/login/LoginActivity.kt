@@ -1,14 +1,20 @@
 package com.azio.scholiki.ui.login
 
+import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
+import android.support.annotation.NonNull
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns.EMAIL_ADDRESS
+import android.view.View
 import android.widget.Toast
 import com.azio.scholiki.R
 import com.azio.scholiki.ui.BaseActivity
+import com.azio.scholiki.ui.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -70,22 +76,27 @@ class LoginActivity : BaseActivity<LoginContract.Presenter>(),LoginContract.View
 
 
     override fun openHomePage(user: FirebaseUser) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+            .apply {
+                addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+            }
+
+        startActivity(intent)
+         }
 
     override val presenter: LoginContract.Presenter by inject { parametersOf(this) }
 
 
     override fun showError(error: String) {
-        Toast.makeText(this,error,Toast.LENGTH_LONG).show()
+        Toasty.error(this, error, Toast.LENGTH_SHORT, true).show()
     }
 
     override fun showLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progress_view.visibility=View.VISIBLE //set visibility as visible
     }
 
     override fun hideLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progress_view.visibility=View.GONE //set visibility as gone
     }
 
 

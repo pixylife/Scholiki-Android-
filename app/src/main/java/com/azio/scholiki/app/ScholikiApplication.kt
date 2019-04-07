@@ -2,6 +2,7 @@ package com.azio.scholiki.app
 
 import android.app.Application
 import com.azio.scholiki.module.appModules
+import es.dmoral.toasty.Toasty
 import org.koin.standalone.StandAloneContext.startKoin
 
 class ScholikiApplication : Application() {
@@ -15,6 +16,11 @@ class ScholikiApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+
+        Toasty.Config.getInstance()
+            .allowQueue(true) // optional (prevents several Toastys from queuing)
+            .apply() // required
+
         // Start Koin
         startKoin(appModules)
 
