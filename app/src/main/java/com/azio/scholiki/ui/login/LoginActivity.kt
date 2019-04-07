@@ -74,11 +74,13 @@ class LoginActivity : BaseActivity<LoginContract.Presenter>(),LoginContract.View
     }
 
 
-
+    /**
+     * open home page
+     */
     override fun openHomePage(user: FirebaseUser) {
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
             .apply {
-                addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+                addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)//activity not goin to add to activity stack
             }
 
         startActivity(intent)
@@ -88,7 +90,7 @@ class LoginActivity : BaseActivity<LoginContract.Presenter>(),LoginContract.View
 
 
     override fun showError(error: String) {
-        Toasty.error(this, error, Toast.LENGTH_SHORT, true).show()
+        Toasty.error(this, error, Toast.LENGTH_LONG, true).show()
     }
 
     override fun showLoading() {

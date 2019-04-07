@@ -15,17 +15,15 @@ class UserDataSourceImpl(
                 if (task.isSuccessful) {
                     // Sign in success
                     val user = auth.currentUser
-
                     //check user is null or not(just in case)
                     if(user!=null) {
-
                         callback.onSuccess(user)
                     }else{
                         callback.onFailed("Something went wrong")
                     }
                 } else {
                     // If sign in fails, display a message to the user.
-                    callback.onFailed("Something went wrong")
+                    callback.onFailed(task.exception?.localizedMessage.toString())
                 }
 
             }    }
