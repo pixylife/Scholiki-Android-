@@ -30,39 +30,71 @@
                     android:fontFamily="@font/fira_sans_regular"
                     android:background="@drawable/btn_bg_blue"
                     android:textColor="@android:color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/edtPassword"
-                    app:layout_constraintStart_toStartOf="@+id/edtPassword"
-                    app:layout_constraintEnd_toEndOf="@+id/edtPassword" android:layout_marginBottom="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPassword"
+                    app:layout_constraintStart_toStartOf="@+id/txtPassword"
+                    app:layout_constraintEnd_toEndOf="@+id/txtPassword" android:layout_marginBottom="24dp"
                     app:layout_constraintBottom_toBottomOf="parent"/>
-            <EditText
+
+
+            <com.azio.scholiki.util.CustomTextInputLayout
+                    android:id="@+id/txtEmail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:ems="10"
-                    android:id="@+id/edtEmail"
-                    android:hint="@string/edt_hint_email"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@color/colorPrimary"
-                    app:backgroundTint="@color/colorPrimary"
-                    android:fontFamily="@font/fira_sans_regular"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"
-                    android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toTopOf="parent"/>
-            <EditText
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    app:errorTextAppearance="@style/ErrorAppearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:ems="10"
+                        android:fontFamily="@font/fira_sans_regular"
+                        android:hint="@string/edt_hint_email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorGrayMedium"
+                        android:textSize="15dp"
+                        android:paddingRight="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp" android:layout_marginTop="24dp"/>
+
+            </com.azio.scholiki.util.CustomTextInputLayout>
+
+            <com.azio.scholiki.util.CustomTextInputLayout
+                    android:id="@+id/txtPassword"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:ems="10"
-                    android:id="@+id/edtPassword"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@color/colorPrimary"
-                    app:backgroundTint="@color/colorPrimary"
-                    android:fontFamily="@font/fira_sans_regular"
-                    android:hint="@string/edt_hint_password"
-                    app:layout_constraintStart_toStartOf="@+id/edtEmail"
-                    app:layout_constraintEnd_toEndOf="@+id/edtEmail"
-                    android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/edtEmail"/>
+                    app:errorTextAppearance="@style/ErrorAppearance"
+                    app:layout_constraintStart_toStartOf="@+id/txtEmail"
+                    app:layout_constraintEnd_toEndOf="@+id/txtEmail"
+                    android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/txtEmail">
+
+                <EditText
+                        android:id="@+id/edtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:ems="10"
+                        android:fontFamily="@font/fira_sans_regular"
+                        android:hint="@string/edt_hint_password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorGrayMedium"
+                        android:textSize="15dp"
+                        android:paddingRight="10dp"
+                />
+
+            </com.azio.scholiki.util.CustomTextInputLayout>
+
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
