@@ -12,9 +12,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.splash_screen.SplashScreenActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/NoActionBar">
+        <activity android:name=".ui.reset_password.ResetPasswordActivity">
+        </activity>
+        <activity
+                android:name=".ui.splash_screen.SplashScreenActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -8,4 +8,6 @@
     <string name="error_msg_invalidEmail">Please enter a valid email address</string>
     <string name="error_msg_emptyPassword">Please enter a password</string>
     <string name="tv_label_welcome">Welcome</string>
+    <string name="tv.label.resetPassword">Reset Password</string>
+    <string name="btn.label.reset">Reset</string>
 </resources>
