@@ -14,4 +14,5 @@ interface UserDataSource : BaseDataSource{
     }
 
     fun userLogin(email : String, password : String, callback : UserDataSource.UserLoginCallback)
+    fun resetPassword(email : String,callback: BaseDataSource.BaseCallBack )
 }

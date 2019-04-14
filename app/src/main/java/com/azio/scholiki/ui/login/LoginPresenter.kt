@@ -25,14 +25,17 @@ class LoginPresenter(
      * @return void - returns void but Asynchronously(after login success) view navigate into next page or show error messages
      */
     override fun login(email : String, password : String){
+        view.showLoading()
         //calling data source function while listing into callback
         userDataSource.userLogin(email,password,object : UserDataSource.UserLoginCallback{
             override fun onSuccess(user: FirebaseUser) {
                     view.openHomePage(user)
+                    view.hideLoading()
             }
 
             override fun onFailed(message: String) {
-                    view.showError(message)
+                view.hideLoading()
+                view.showError(message)
             }
 
         })
