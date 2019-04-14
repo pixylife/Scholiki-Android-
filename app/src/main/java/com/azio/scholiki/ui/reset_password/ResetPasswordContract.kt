@@ -2,7 +2,6 @@ package com.azio.scholiki.ui.reset_password
 
 import com.azio.scholiki.ui.BasePresenter
 import com.azio.scholiki.ui.BaseView
-import com.google.firebase.auth.FirebaseUser
 
 /**
  * Created by Sahan Thinusha on 4/10/2019.
