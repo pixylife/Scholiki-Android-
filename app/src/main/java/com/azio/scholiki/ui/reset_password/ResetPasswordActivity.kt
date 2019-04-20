@@ -36,7 +36,7 @@ class ResetPasswordActivity : BaseActivity<ResetPasswordContract.Presenter>(), R
      * @param email - email address from email edit text
      * return - Boolean
      */
-    private fun isValidate(email: String, password: String): Boolean {
+    private fun isValidate(email: String): Boolean {
 
         //check field is empty or not
         if (TextUtils.isEmpty(email)) {
@@ -56,7 +56,7 @@ class ResetPasswordActivity : BaseActivity<ResetPasswordContract.Presenter>(), R
      * return String error
      * @param email - email address from email edit text
      */
-    private fun getMessage(email: String, password: String): String {
+    private fun getMessage(email: String): String {
 
         if (TextUtils.isEmpty(email)) {
             return resources.getString(R.string.error_msg_emptyEmail)
