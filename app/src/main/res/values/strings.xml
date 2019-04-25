@@ -10,4 +10,6 @@
     <string name="tv_label_welcome">Welcome</string>
     <string name="tv.label.resetPassword">Reset Password</string>
     <string name="btn.label.reset">Reset</string>
+    <string name="tv_label_totalStudents">Total Students</string>
+    <string name="tv_label_totalClasses">Total Classes</string>
 </resources>
