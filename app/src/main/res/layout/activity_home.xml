@@ -70,9 +70,15 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/textView6" android:layout_marginBottom="8dp"/>
     <Button
-            android:text="Button"
+            android:text="@string/btn_label_timeTable"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="482dp"
-            android:id="@+id/button" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            android:drawableEnd="@drawable/calendar"
+            android:drawablePadding="10dp"
+            android:textColor="@color/colorAccent"
+            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dailySchedule" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            style="@style/Widget.AppCompat.Button" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </android.support.constraint.ConstraintLayout>
