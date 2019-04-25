@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.student.StudentActivity">
+        tools:context=".ui.student.list.StudentActivity">
 
     <android.support.v7.widget.Toolbar
             android:layout_width="0dp"
@@ -18,12 +18,13 @@
             app:layout_constraintEnd_toEndOf="parent">
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" tools:layout_editor_absoluteX="16dp">
+                android:layout_height="wrap_content" tools:layout_editor_absoluteY="7dp"
+                tools:layout_editor_absoluteX="16dp">
 
             <ImageButton
                     android:background="@android:color/transparent"
                     android:layout_width="0dp"
-                    android:layout_height="33dp" app:srcCompat="@drawable/add" android:id="@+id/imageButton"
+                    android:layout_height="33dp" app:srcCompat="@drawable/add" android:id="@+id/imgBtnStudnetsAdd"
                     app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintDimensionRatio="w,1:1"/>
@@ -37,7 +38,14 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imageButton" android:layout_marginEnd="8dp"/>
+                    app:layout_constraintEnd_toStartOf="@+id/imgBtnStudnetsAdd" android:layout_marginEnd="8dp"/>
+            <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="33dp" app:srcCompat="@drawable/menu"
+                    android:id="@+id/imgBtnStudentsMenu" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintDimensionRatio="w,1:1"/>
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.Toolbar>
     <android.support.v7.widget.RecyclerView
@@ -45,5 +53,5 @@
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" android:id="@+id/rcStudent"/>
 </android.support.constraint.ConstraintLayout>

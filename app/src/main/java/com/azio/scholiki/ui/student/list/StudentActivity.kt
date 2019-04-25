@@ -1,4 +1,4 @@
-package com.azio.scholiki.ui.student
+package com.azio.scholiki.ui.student.list
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

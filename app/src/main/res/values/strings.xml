@@ -14,4 +14,8 @@
     <string name="tv_label_totalClasses">Total Classes</string>
     <string name="btn_label_timeTable">Time Table</string>
     <string name="tv_label_students">Students</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_label_next">Next</string>
 </resources>

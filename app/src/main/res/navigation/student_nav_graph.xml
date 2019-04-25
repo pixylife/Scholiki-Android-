@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/student_nav_graph"
+            app:startDestination="@id/studentAddDetailFragment">
+
+    <fragment android:id="@+id/studentAddDetailFragment" android:name="com.azio.scholiki.ui.student.add.StudentAddDetailFragment"
+              android:label="fragment_student_add_detail" tools:layout="@layout/fragment_student_add_detail">
+        <action android:id="@+id/action_studentAddDetailFragment_to_studentAddParentDetailsFragment"
+                app:destination="@id/studentAddParentDetailsFragment" app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim" app:launchSingleTop="true"/>
+    </fragment>
+    <fragment android:id="@+id/studentAddParentDetailsFragment"
+              android:name="com.azio.scholiki.ui.student.add.StudentAddParentDetailsFragment"
+              android:label="fragment_student_add_parent_details"
+              tools:layout="@layout/fragment_student_add_parent_details">
+        <action android:id="@+id/action_studentAddParentDetailsFragment_to_studentAddClassDetailFragment"
+                app:destination="@id/studentAddClassDetailFragment"/>
+    </fragment>
+    <fragment android:id="@+id/studentAddClassDetailFragment"
+              android:name="com.azio.scholiki.ui.student.add.StudentAddClassDetailFragment"
+              android:label="fragment_student_add_class_detail"
+              tools:layout="@layout/fragment_student_add_class_detail">
+        <action android:id="@+id/action_studentAddClassDetailFragment_to_studentAddPaymentInfoFragment"
+                app:destination="@id/studentAddPaymentInfoFragment"/>
+    </fragment>
+    <fragment android:id="@+id/studentAddPaymentInfoFragment"
+              android:name="com.azio.scholiki.ui.student.add.StudentAddPaymentInfoFragment"
+              android:label="fragment_student_add_payment_info"
+              tools:layout="@layout/fragment_student_add_payment_info"/>
+</navigation>
