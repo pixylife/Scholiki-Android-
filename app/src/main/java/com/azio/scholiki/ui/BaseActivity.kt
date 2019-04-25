@@ -1,6 +1,6 @@
 package com.azio.scholiki.ui
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * Activity all Activity classes of rosso must extend. It provides required methods and presenter

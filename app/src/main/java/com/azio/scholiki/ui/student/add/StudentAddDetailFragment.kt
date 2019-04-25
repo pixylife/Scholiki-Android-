@@ -6,11 +6,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v4.app.Fragment
-import android.support.v4.content.FileProvider
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
 import com.azio.scholiki.R
 import com.azio.scholiki.app.ScholikiAppConstants
 import com.azio.scholiki.util.ImageUtil

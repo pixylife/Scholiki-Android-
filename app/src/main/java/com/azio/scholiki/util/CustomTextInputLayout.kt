@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.support.design.widget.TextInputLayout
+import com.google.android.material.textfield.TextInputLayout
 
 /**
  * Created by Sahan Thinusha on 4/7/2019.
  */
-class CustomTextInputLayout (context: Context, attrs: AttributeSet) :TextInputLayout(context, attrs) {
+class CustomTextInputLayout (context: Context, attrs: AttributeSet) : TextInputLayout(context, attrs) {
 
     override fun setErrorEnabled(enabled: Boolean) {
         super.setErrorEnabled(enabled)

@@ -1,7 +1,7 @@
 package com.azio.scholiki.ui.student.add
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.azio.scholiki.R
 
 class StudentAddActivity : AppCompatActivity() {
