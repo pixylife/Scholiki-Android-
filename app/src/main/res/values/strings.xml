@@ -18,4 +18,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_label_next">Next</string>
+    <string name="edt_hint_studentName">Student Name</string>
+    <string name="edt_hint_email_optional">Email (Optional)</string>
+    <string name="edt_hint_poneNo_optional">Contact No (Optional)</string>
+    <string name="rb_label_male">Male</string>
+    <string name="rb_label_female">Female</string>
+    <string name="tv_label_gender">Gender</string>
+    <string name="tv_label_personalDetails">Personal Details</string>
+
+
+    <string name="item_label_takePhoto" >Take Photo</string>
+    <string name="item_label_chooseFromLibrary" >Choose from Library</string>
+    <string name="item_label_cancel" >Cancel</string>
 </resources>

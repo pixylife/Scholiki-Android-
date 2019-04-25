@@ -42,6 +42,7 @@ dependencies {
     //Android support lib dependencies
     implementation "com.android.support:support-media-compat:$androidSupVer"
     implementation "com.android.support:support-v4:$androidSupVer"
+    implementation "com.android.support:animated-vector-drawable:$androidSupVer"
     implementation "com.android.support:appcompat-v7:$androidSupVer"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation "com.android.support:cardview-v7:$androidSupVer"
@@ -67,6 +68,14 @@ dependencies {
     //navigation architecture dependencies
     implementation 'android.arch.navigation:navigation-fragment:1.0.0'
     implementation 'android.arch.navigation:navigation-ui:1.0.0'
+
+    //circular image view dependencies
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+
+
+    //Glide dependencies
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.github.bumptech.glide:annotations:4.8.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

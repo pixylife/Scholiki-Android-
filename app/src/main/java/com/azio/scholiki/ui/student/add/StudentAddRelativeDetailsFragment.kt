@@ -43,7 +43,7 @@ class StudentAddParentDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_student_add_parent_details, container, false)
+        return inflater.inflate(R.layout.fragment_student_add_relative_details, container, false)
     }
 
     // TODO: Rename method, update argument and hook method into UI event

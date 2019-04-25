@@ -1,41 +1,69 @@
 package com.azio.scholiki.ui.student.add
 
-import android.content.Context
-import android.net.Uri
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v4.app.Fragment
+import android.support.v4.content.FileProvider
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.azio.scholiki.R
+import com.azio.scholiki.app.ScholikiAppConstants
+import com.azio.scholiki.util.ImageUtil
+import com.azio.scholiki.util.RequestPermissionForImages
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import kotlinx.android.synthetic.main.fragment_student_add_detail.*
+import java.io.File
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [StudentAddDetailFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [StudentAddDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class StudentAddDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
+
+    private var file: File? = null
+    private val SELECT_FILE = 1
+    private val CAPTURE_IMAGE = 450
+    private var userChosenTask: Int = 0
+    private var data: Intent? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+        imageStudentProfile.setOnClickListener {
+            val items = arrayOf<CharSequence>(
+                resources.getString(R.string.item_label_takePhoto),
+                resources.getString(R.string.item_label_chooseFromLibrary)
+            )
+            val builder = AlertDialog.Builder(this@StudentAddDetailFragment.context)
+            builder.setTitle("Add Photo")
+            builder.setNegativeButton(resources.getString(R.string.item_label_cancel)) { dialog, id -> dialog.cancel() }
+            builder.setItems(items) { dialog, item ->
+                val result = this@StudentAddDetailFragment.context?.let {
+                    RequestPermissionForImages.checkPermissionForExternalStorage(
+                        it
+                    )
+                }
+
+                if (item == 0) {
+                    userChosenTask = 0
+                    if (result!!) {
+                        cameraIntent()
+                    }
+                } else if (item == 1) {
+                    userChosenTask = 1
+                    if (result!!) {
+                        galleryIntent()
+                    }
+
+                }
+            }
+            builder.show()
         }
+
     }
 
     override fun onCreateView(
@@ -46,58 +74,106 @@ class StudentAddDetailFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_student_add_detail, container, false)
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            ScholikiAppConstants.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (userChosenTask == 1)
+                    galleryIntent()
+            } else {
+                //code for deny
+            }
+            ScholikiAppConstants.MY_PERMISSIONS_REQUEST_CAMERA -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (userChosenTask == 0)
+                    cameraIntent()
+            } else {
+            }
         }
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
+
+    private fun galleryIntent() {
+        // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
+        // browser.
+        val intent = Intent(Intent.ACTION_PICK)
+
+        // Filter to only show results that can be "opened", such as a
+        // file (as opposed to a list of contacts or timezones)
+        /*
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+*/
+
+
+        // Filter to show only images, using the image MIME data type.
+        // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
+        // To search for all documents available via installed storage providers,
+        // it would be "*/*".
+        intent.type = "image/*"
+        startActivityForResult(intent, SELECT_FILE)
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment StudentAddDetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            StudentAddDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun cameraIntent() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(activity!!.packageManager) != null) {
+            // Create the File where the photo should go
+            var photoFile: File? = null
+            try {
+                photoFile = activity?.let { ImageUtil.createImageFile(it) }
+                file = photoFile
+            } catch (ex: Exception) {
+                // Error occurred while creating the File
             }
+
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                val photoURI = this@StudentAddDetailFragment.context?.let {
+                    FileProvider.getUriForFile(
+                        it,
+                        "com.azio.scholiki.fileprovider",
+                        photoFile
+                    )
+                }
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                startActivityForResult(takePictureIntent, CAPTURE_IMAGE)
+            }
+        }
     }
+
+    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == SELECT_FILE) {
+                onSelectFromGalleryResult(data!!)
+                val imgUtil = activity?.let { ImageUtil(it) }
+                file = imgUtil?.dumpImageMetaData(data.data)
+
+            } else if (requestCode == CAPTURE_IMAGE && resultCode == Activity.RESULT_OK) {
+                onCaptureImageResult(data)
+            }
+            this.data = data
+        }
+
+
+    }
+
+    private fun onSelectFromGalleryResult(data: Intent) {
+        Glide.with(this).load(data.data).apply(RequestOptions.circleCropTransform()).into(imageStudentProfile)
+    }
+
+    private fun onCaptureImageResult(data: Intent?) {
+        if (file != null) {
+            Glide.with(this)
+                .load(file)
+                .apply(RequestOptions.circleCropTransform())
+                .into(imageStudentProfile)
+        }
+
+    }
+
 }
+
+
+

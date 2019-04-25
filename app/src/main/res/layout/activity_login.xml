@@ -84,11 +84,11 @@
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/colorPrimary"
                         android:ems="10"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorGrayMedium"
                         android:fontFamily="@font/fira_sans_regular"
                         android:hint="@string/edt_hint_password"
                         android:inputType="textPassword"
-                        android:textColor="@color/colorBlack"
-                        android:textColorHint="@color/colorGrayMedium"
                         android:textSize="15dp"
                         android:paddingRight="10dp"
                 />

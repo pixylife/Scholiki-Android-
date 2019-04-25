@@ -13,7 +13,7 @@
     <fragment android:id="@+id/studentAddParentDetailsFragment"
               android:name="com.azio.scholiki.ui.student.add.StudentAddParentDetailsFragment"
               android:label="fragment_student_add_parent_details"
-              tools:layout="@layout/fragment_student_add_parent_details">
+              tools:layout="@layout/fragment_student_add_relative_details">
         <action android:id="@+id/action_studentAddParentDetailsFragment_to_studentAddClassDetailFragment"
                 app:destination="@id/studentAddClassDetailFragment"/>
     </fragment>
